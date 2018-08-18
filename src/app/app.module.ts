@@ -11,7 +11,6 @@ import { PagesModule } from './pages/pages.module';
 // Servicios
 import { ServiceModule } from './services/service.module';
 
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
