@@ -21,7 +21,7 @@ export class UsuariosComponent implements OnInit {
                 public _modalUploadService: ModalUploadService) { }
 
   ngOnInit() {
-    
+
     this.cargarUsuarios();
 
     this._modalUploadService.notificacion
@@ -33,21 +33,21 @@ export class UsuariosComponent implements OnInit {
 
     this.cargando = true;
 
-  this._usuarioService.cargarUsuarios(this.desde)
-      .subscribe( (resp: any) => {
+    this._usuarioService.cargarUsuarios(this.desde)
+        .subscribe( (resp: any) => {
 
-          this.totalRegistros = resp.total;
-          this.usuarios = resp.usuarios;
+            this.totalRegistros = resp.total;
+            this.usuarios = resp.usuarios;
 
-          this.cargando = false;
-      });
+            this.cargando = false;
+     });
   }
 
   cambiarDesde(valor: number) {
 
     const desde = this.desde + valor;
 
-    if ( desde >= this.totalRegistros ){
+    if ( desde >= this.totalRegistros ) {
       return;
     }
 
