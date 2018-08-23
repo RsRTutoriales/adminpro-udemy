@@ -22,7 +22,7 @@ export class MedicoComponent implements OnInit {
               public _hospitalService: HospitalService,
               public router: Router,
               public activatedRoute: ActivatedRoute,
-              public _modalUploadService: ModalUploadService) { 
+              public _modalUploadService: ModalUploadService) {
 
                 activatedRoute.params.subscribe(params => {
                   const id = params['id'];
@@ -46,6 +46,7 @@ export class MedicoComponent implements OnInit {
   }
 
   cargarMedico(id: string) {
+
     this._medicoService.cargarMedico(id)
     .subscribe( medico => {
 
