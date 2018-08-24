@@ -23,6 +23,29 @@ export class UsuarioService {
     this.cargarStorage();
   }
 
+  renuevaToken() {
+
+    const url = URL_SERVICIOS + '/login/renuevatoken?token=' + this.token;
+
+    return this.http.get(url).pipe(
+      map( (resp: any) => {
+        this.token = resp.token;
+
+        // esto no deberia ir aca, sino en una funcion centralizada
+        localStorage.setItem('token', this.token);
+
+        return true;
+
+      }),
+      catchError( err => {
+        this.router.navigate(['/login']);
+        return throwError(err);
+
+      })
+    );
+
+  }
+
   estaLogueado(): boolean {
      return (this.token.length > 5) ? true : false;
   }
